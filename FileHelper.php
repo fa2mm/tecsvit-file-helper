@@ -15,6 +15,20 @@ class FileHelper
     }
 
     /**
+     * @param string $filePath
+     * @param string $content
+     * @return void
+     */
+    public function createFile($filePath, $content = null)
+    {
+        if (!file_exists($filePath)) {
+            if ($this->createDirectory(dirname($filePath), '0777')) {
+                file_put_contents($filePath, $content);
+            }
+        }
+    }
+
+    /**
      * Creates a new directory.
      *
      * This method is similar to the PHP `mkdir()` function except that
@@ -26,7 +40,7 @@ class FileHelper
      * @param boolean $recursive whether to create parent directories if they do not exist.
      * @return boolean whether the directory is created successfully
      */
-    public function createDirectory($path, $mode = 0775, $recursive = true)
+    public static function createDirectory($path, $mode = 0775, $recursive = true)
     {
         if (is_dir($path)) {
             return true;
