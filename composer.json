@@ -1,0 +1,16 @@
+{
+    "name": "tecsvit/file-helper",
+    "description": "File helper",
+    "type": "library",
+    "keywords": ["library","file system"],
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=5.6",
+        "tecsvit/public-errors": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "\\tecsvit\\": ""
+        }
+    }
+}
