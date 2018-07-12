@@ -1,8 +1,6 @@
 <?php
 
-namespace \tecsvit;
-
-use \Exception;
+namespace tecsvit;
 
 /**
  * Class FileHelper
@@ -80,7 +78,7 @@ class FileHelper
             if (!mkdir($path, $mode)) {
                 return false;
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if (!is_dir($path)) {
                 self::errorInstance()->addError('Failed to create directory "'. $path. '": ' . $e->getMessage());
 
@@ -90,7 +88,7 @@ class FileHelper
 
         try {
             return chmod($path, $mode);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             self::errorInstance()->addError(
                 'Failed to change permissions for directory "' . $path . '": ' . $e->getMessage()
             );
